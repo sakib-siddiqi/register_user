@@ -1,0 +1,11 @@
+/* Hight */
+.vh-min-100{
+    min-height: 100vh;
+}
+/* flex */
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

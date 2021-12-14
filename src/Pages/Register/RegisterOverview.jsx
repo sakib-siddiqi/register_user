@@ -23,7 +23,7 @@ const RegisterOverview = () => {
           </div>
         </Col>
       </Row>
-      <p className="lh-lg my-4 col-12 col-md-10">
+      <p className="lh-lg my-4 col-12 col-md-11 col-lg-10" >
         Codeaxes Digital Solutions is a multi-special internet marketing firm
         that specializes in results-oriented advertising. We assist companies in
         increasing client retention and maximizing conversion opportunities.We

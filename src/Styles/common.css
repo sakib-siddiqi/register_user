@@ -1,11 +1,61 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+/* Html,Body */
+html,
+body {
+  background: var(--dark);
+  min-height: 100vh;
+}
 /* Hight */
-.vh-min-100{
-    min-height: 100vh;
+.vh-min-100 {
+  min-height: 100vh;
+}
+.vh-min-80 {
+  min-height: 80vh;
 }
 /* flex */
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* Background */
+.bg-dark {
+  background: var(--dark) !important;
+  color: var(--light);
+}
+.bg-dark-lt {
+  background: var(--dark-lt) !important;
+  color: var(--light);
+}
+.bg-primary {
+  background: var(--primary) !important;
+}
+/* text */
+.text-light{
+    color: var(--light) !important;
+}
+/* Font */
+.fw-bold-sm {
+  font-weight: 600;
+}
+
+/*Button */
+.btn-primary,
+.btn-dark{
+border-radius: 0px !important;
+}
+.btn-dark:focus,.btn-primary:focus{
+    box-shadow: none !important;
+}
+.btn-dark{
+    background: var(--dark);
+}
+.btn-primary{
+    background: var(--primary);
+}
+.btn-light{
+    background: var(--light);
 }

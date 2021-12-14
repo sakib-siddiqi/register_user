@@ -1,20 +1,19 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-
+const commonClass = "btn px-3 rounded-0";
 const ButtonPrimary = ({ children, className, ...rest }) => (
-  <Button {...rest} className={`${className} btn-primary`}>
+  <button {...rest} className={`${className} ${commonClass} btn-primary`}>
     {children}
-  </Button>
+  </button>
 );
 const ButtonDark = ({ children, className, ...rest }) => (
-  <Button {...rest} className={`${className} btn-dark`}>
+  <button {...rest} className={`${className} ${commonClass} btn-dark`}>
     {children}
-  </Button>
+  </button>
 );
 const ButtonLight = ({ children, className, ...rest }) => (
-  <Button {...rest} className={`${className} btn-light`}>
+  <button {...rest} className={`${className} ${commonClass} btn-light`}>
     {children}
-  </Button>
+  </button>
 );
 
 export { ButtonPrimary, ButtonDark, ButtonLight };

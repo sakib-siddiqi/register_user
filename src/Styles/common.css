@@ -59,3 +59,9 @@ border-radius: 0px !important;
 .btn-light{
     background: var(--light);
 }
+.btn-dark:hover{
+    background: var(--dark-lt);
+}
+.btn-primary:hover{
+    background: var(--primary-lt);
+}

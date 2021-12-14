@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import { ButtonDark } from "../../Shared/Components/Buttons";
 
 /*
 Form Field
@@ -27,7 +28,7 @@ const RegisterForm = () => {
       <h3 className="fw-bold-sm mt-3 text-light">Register</h3>
       <hr />
       <form>
-        <Row xs={1} md={2}>
+        <Row xs={1} md={1} lg={2}>
           <Col>
             <FromField
               field_title="First name"
@@ -51,7 +52,7 @@ const RegisterForm = () => {
           name_id="email"
           placeholder="Email"
         />
-        <Row xs={1} md={2}>
+        <Row xs={1} md={1} lg={2}>
           <Col>
             <FromField
               field_title="Birthday"
@@ -75,7 +76,9 @@ const RegisterForm = () => {
           name_id="address"
           placeholder="Address"
         />
-        <></>
+        <ButtonDark type="submit" className="mt-4">
+          Signup
+        </ButtonDark>
       </form>
     </>
   );

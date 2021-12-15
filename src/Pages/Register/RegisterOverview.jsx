@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Nav, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ButtonPrimary } from "../../Shared/Components/Buttons";
 const img_style = {
@@ -31,9 +31,9 @@ const RegisterOverview = () => {
         give your brand a digital success with our undivided attention and
         technical assistance.
       </p>
-      <Nav.Link as={Link} to="/users">
+      <Link to="/users">
         <ButtonPrimary>Take a look</ButtonPrimary>
-      </Nav.Link>
+      </Link>
     </div>
   );
 };

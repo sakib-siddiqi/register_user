@@ -7,7 +7,7 @@ const User = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch("http://localhost:5000/users")
+    fetch("https://codeaxes-s15.herokuapp.com/users")
       .then((res) => res.json())
       .then((usersData) => setUsers(usersData));
   }, []);

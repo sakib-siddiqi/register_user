@@ -41,7 +41,7 @@ const RegisterForm = () => {
   };
   const handleSumbit = (e) => {
     e.preventDefault();
-    const postUserData = fetch("http://localhost:5000/users", {
+    const postUserData = fetch("https://codeaxes-s15.herokuapp.com/users", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

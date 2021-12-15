@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { toast } from "react-toastify";
 import { ButtonDark } from "../../Shared/Components/Buttons";
 
 /*
@@ -40,7 +41,21 @@ const RegisterForm = () => {
   };
   const handleSumbit = (e) => {
     e.preventDefault();
-    console.log(userData);
+    const postUserData = fetch("http://localhost:5000/users", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    toast
+      .promise(postUserData, {
+        pending: "wait...",
+        success: "Registered.",
+        error: "Try again.",
+      })
+      .then((res) => res.json())
+      .then((done) => done.done && e.target.reset());
   };
   return (
     <>

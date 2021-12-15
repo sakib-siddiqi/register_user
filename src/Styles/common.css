@@ -34,8 +34,8 @@ body {
   background: var(--primary) !important;
 }
 /* text */
-.text-light{
-    color: var(--light) !important;
+.text-light {
+  color: var(--light) !important;
 }
 /* Font */
 .fw-bold-sm {
@@ -44,24 +44,35 @@ body {
 
 /*Button */
 .btn-primary,
-.btn-dark{
-border-radius: 0px !important;
+.btn-dark {
+  border-radius: 0px !important;
+  border-color: var(--dark) !important;
 }
-.btn-dark:focus,.btn-primary:focus{
-    box-shadow: none !important;
+.btn-dark:focus,
+.btn-primary:focus {
+  box-shadow: none !important;
 }
-.btn-dark{
-    background: var(--dark);
+.btn-dark:active,
+.btn-primary:active {
+  background: inherit !important;
 }
-.btn-primary{
-    background: var(--primary);
+.btn-dark {
+  background: var(--dark);
 }
-.btn-light{
-    background: var(--light);
+.btn-primary {
+  background: var(--primary);
 }
-.btn-dark:hover{
-    background: var(--dark-lt);
+.btn-light {
+  background: var(--light);
 }
-.btn-primary:hover{
-    background: var(--primary-lt);
+.btn-dark:hover {
+  background: var(--dark-lt);
+}
+.btn-primary:hover {
+  background: var(--primary-lt);
+}
+/* Input */
+input{
+  background: var(--light);
+  color: var(--dark-lt);
 }

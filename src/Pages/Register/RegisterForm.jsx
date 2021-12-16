@@ -48,7 +48,7 @@ const RegisterForm = () => {
       for (let filed in userData) {
         formData.append(filed, userData[filed]);
       }
-      const postUserData = fetch("http://localhost:5000/users", {
+      const postUserData = fetch("https://codeaxes-s15.herokuapp.com/users", {
         method: "POST",
         body: formData,
       });

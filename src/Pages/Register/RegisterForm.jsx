@@ -41,21 +41,26 @@ const RegisterForm = () => {
   };
   const handleSumbit = (e) => {
     e.preventDefault();
-    const postUserData = fetch("https://codeaxes-s15.herokuapp.com/users", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-    toast
-      .promise(postUserData, {
-        pending: "wait...",
-        success: "Registered.",
-        error: "Try again.",
-      })
-      .then((res) => res.json())
-      .then((done) => done.done && e.target.reset());
+    if (userData.image.size > 524288) {
+      alert("Maximum file size is 500kb !");
+    } else {
+      const formData = new FormData();
+      for (let filed in userData) {
+        formData.append(filed, userData[filed]);
+      }
+      const postUserData = fetch("http://localhost:5000/users", {
+        method: "POST",
+        body: formData,
+      });
+      toast
+        .promise(postUserData, {
+          pending: "wait...",
+          success: "Registered.",
+          error: "Try again.",
+        })
+        .then((res) => res.json())
+        .then((data) => data.acknowledge && e.target.reset());
+    }
   };
   return (
     <>
@@ -106,7 +111,7 @@ const RegisterForm = () => {
             <FromField
               minLength={10}
               field_title="Contact Number"
-              type="number"
+              type="tell"
               name_id="contact_number"
               placeholder="Contact Number"
               onBlur={handleinput}
@@ -120,6 +125,20 @@ const RegisterForm = () => {
           placeholder="Address"
           onBlur={handleinput}
         />
+        <FromField
+          field_title="Image"
+          type="file"
+          name_id="image"
+          placeholder="Image"
+          accept="image/png"
+          onBlur={(e) => {
+            const newData = {
+              ...userData,
+              image: e.target.files[0],
+            };
+            setUserData(newData);
+          }}
+        ></FromField>
         <ButtonDark type="submit" className="mt-4">
           Signup
         </ButtonDark>

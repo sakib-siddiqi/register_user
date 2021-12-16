@@ -7,7 +7,7 @@ const User = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch("https://codeaxes-s15.herokuapp.com/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((usersData) => setUsers(usersData));
   }, []);
@@ -21,12 +21,28 @@ const User = () => {
                 <Col key={user._id}>
                   <Card className="border-0 shadow-sm text-light bg-dark-lt">
                     <Card.Body>
-                      <h4>{`${user.first_name} ${user.last_name}`}</h4>
-                      <small>{user.birthday}</small>
-                      <br />
-                      <small>{user.address}</small>
-                      <p>{user.email}</p>
-                      <p>{user.contact_number}</p>
+                      <Row className="g-3">
+                        <Col xs={3}>
+                          <img
+                            src={`data:image/png;base64,${user.image}`}
+                            alt={user.first_name}
+                            className="img-fluid cover-1-1 rounded-pill border border-3 border-primary"
+                            style={{
+                              outline:"3px solid #4f38d9",
+                              outlineOffset:"3px",
+                              borderColor:"#4f38d9 !important"
+                            }}
+                          />
+                        </Col>
+                        <Col xs={9}>
+                          <h4>{`${user.first_name} ${user.last_name}`}</h4>
+                          <small>{user.birthday}</small>
+                          <br />
+                          <small>{user.address}</small>
+                          <p>{user.email}</p>
+                          <p>{user.contact_number}</p>
+                        </Col>
+                      </Row>
                     </Card.Body>
                   </Card>
                 </Col>

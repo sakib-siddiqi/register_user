@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 5000;
 require("dotenv").config();
+const fileuploader = require("express-fileupload");
 const cors = require("cors");
 const { MongoClient, ObjectId } = require("mongodb");
 const { json } = require("express/lib/response");
@@ -10,7 +11,7 @@ const { json } = require("express/lib/response");
  */
 app.use(cors());
 app.use(express.json());
-
+app.use(fileuploader());
 // ----------------
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLIENT_URL}?retryWrites=true&w=majority`;
 
@@ -27,9 +28,12 @@ const client = new MongoClient(uri);
   const DB = client.db("CodeAxes_task");
   const users = DB.collection("users");
   app.post("/users", async (req, res) => {
-    const userData = req.body;
-    await users.insertOne(userData);
-    res.json({ done: true });
+    const data = req.body;
+    const encodedImage = req.files.image.data.toString("base64");
+    const bufferImage = Buffer.from(encodedImage, "base64");
+    const userData = { ...data, image: bufferImage };
+    const result = await users.insertOne(userData);
+    res.json(result);
   });
   app.get("/users", async (req, res) => {
     const result = await users.find().toArray();
